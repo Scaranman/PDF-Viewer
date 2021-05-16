@@ -1,12 +1,7 @@
 {{ $page := .root }}
 {{ $section := .page }}
+{{ $author = $page.Params.author }}
 
-{{ $author := "" }}
-{{ if .author }}
-  {{ $author = .author }}
-{{ else }}
-  {{ $author = $page.Params.author }}
-{{end}}
 
 {{ $author_page_path := (printf "/authors/%s" $author) }}
 {{ $author_page := .Site.GetPage $author_page_path }}
