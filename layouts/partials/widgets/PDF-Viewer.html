@@ -1,17 +1,17 @@
 {{ $page := .root }}
 {{ $section := .page }}
 
-{{ $author_page_path := (printf "/authors/%s" $page.Params.author) }}
+{{ $author_page_path := (printf "/authors/%s" $section.Params.author) }}
 {{ $author_page := .Site.GetPage $author_page_path }}
 
-{{ $pdf := ($author_page.Resources.ByType "application/pdf").GetMatch (printf "%s*" $page.Params.file_name) }}
+{{ $pdf := ($author_page.Resources.ByType "application/pdf").GetMatch (printf "%s*" $section.Params.file_name) }}
 
 <!-- PDF Viewer widget -->
 
 <h1>{{$section.Title}}</h2>
 <h2>author_page_path: {{ $author_page_path }}</h2>
-<h2>author: {{ $page.Params.author }}</h2>
-<h2>filename: {{ $page.Params.file_name }}</h2>
+<h2>author: {{ $section.Params.author }}</h2>
+<h2>filename: {{ $section.Params.file_name }}</h2>
 
 
 {{ if eq $section.Params.downloadable false }}
