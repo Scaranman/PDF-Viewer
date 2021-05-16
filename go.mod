@@ -1,3 +1,3 @@
-module github.com/wowchemy/wowchemy-widget-starter
+module github.com/Scaranman/PDF-Viewer
 
 go 1.15
