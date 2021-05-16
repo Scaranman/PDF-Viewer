@@ -18,9 +18,9 @@
 <h2>{{$section.Title}}</h2>
 
 {{ if eq $section.Params.downloadable false }}
-    <embed src="/media/documents/{{ $pdf.RelPermalink }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
+    <embed src="{{ $pdf.RelPermalink }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
 {{ else }}
-    <embed src="/media/documents/{{ $pdf.RelPermalink }}" width="100%" height="{{ $section.Params.document_height }}"></embed>
+    <embed src="{{ $pdf.RelPermalink }}" width="100%" height="{{ $section.Params.document_height }}"></embed>
 {{ end }}
 
 <p>{{ $section.Content }}</p>
