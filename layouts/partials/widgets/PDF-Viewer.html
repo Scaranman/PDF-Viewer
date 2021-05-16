@@ -3,7 +3,7 @@
 
 <h2>{{$section.Title}}</h2>
 
-{{ if Eq $section.Params.downloadable false }}
+{{ if eq $section.Params.downloadable false }}
     <embed src="/media/documents/{{ $section.Params.file_name }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
 {{ else }}
     <embed src="/media/documents/{{ $section.Params.file_name }}" width="100%" height="{{ $section.Params.document_height }}"></embed>
