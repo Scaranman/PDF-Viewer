@@ -10,6 +10,9 @@
 
 <h1>{{$section.Title}}</h2>
 <h2>author_page_path: {{ $author_page_path }}</h2>
+<h2>author: {{ $page.Params.author }}</h2>
+<h2>filename: {{ $page.Params.file_name }}</h2>
+
 
 {{ if eq $section.Params.downloadable false }}
     <embed src="{{ $pdf.RelPermalink }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
