@@ -1,12 +1,30 @@
 {{ $page := .root }}
 {{ $section := .page }}
 
+{{ $author := "" }}
+{{ if .author }}
+  {{ $author = .author }}
+{{ else }}
+  {{ $author = $page.Params.author }}
+{{end}}
+
+{{ $author_page_path := (printf "/authors/%s" $author) }}
+{{ $author_page := site.GetPage $author_page_path }}
+
+{{ if not $author_page }}
+  {{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your PDF Viewer widget and create an associated author page if one does not already exist. " $author_page_path }}
+{{end}}
+
+{{ $pdf := ($author_page.Resources.ByType "application/pdf").GetMatch (printf "%s*" $page.Params.file_name) }}
+
+<!-- PDF Viewer widget -->
+
 <h2>{{$section.Title}}</h2>
 
 {{ if eq $section.Params.downloadable false }}
-    <embed src="/media/documents/{{ $section.Params.file_name }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
+    <embed src="/media/documents/{{ $pdf.RelPermalink }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
 {{ else }}
-    <embed src="/media/documents/{{ $section.Params.file_name }}" width="100%" height="{{ $section.Params.document_height }}"></embed>
+    <embed src="/media/documents/{{ $pdf.RelPermalink }}" width="100%" height="{{ $section.Params.document_height }}"></embed>
 {{ end }}
 
 <p>{{ $section.Content }}</p>
