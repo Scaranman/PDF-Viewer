@@ -1,9 +1,7 @@
 {{ $page := .root }}
 {{ $section := .page }}
-{{ $author = $page.Params.author }}
 
-
-{{ $author_page_path := (printf "/authors/%s" $author) }}
+{{ $author_page_path := (printf "/authors/%s" $page.Params.author) }}
 {{ $author_page := .Site.GetPage $author_page_path }}
 
 {{ $pdf := ($author_page.Resources.ByType "application/pdf").GetMatch (printf "%s*" $page.Params.file_name) }}
