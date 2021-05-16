@@ -11,9 +11,10 @@
 {{ $author_page_path := (printf "/authors/%s" $author) }}
 {{ $author_page := .Site.GetPage $author_page_path }}
 
+<!-- 
 {{ if not $author_page }}
   {{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your PDF Viewer widget and create an associated author page if one does not already exist. " $author_page_path }}
-{{end}}
+{{end}} -->
 
 {{ $pdf := ($author_page.Resources.ByType "application/pdf").GetMatch (printf "%s*" $page.Params.file_name) }}
 
