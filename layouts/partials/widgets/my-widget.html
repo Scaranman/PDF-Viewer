@@ -3,4 +3,8 @@
 
 <h2>{{$section.Title}}</h2>
 
-<p>{{$section.Content}}</p>
+{{ if $section.Params.Downloadable }}
+  <iframe src="/media/documents/{{ $section.Params.file_name }}" width="100%" height="{{ $section.Params.document_height }}">
+{{ else }}
+    <iframe src="/media/documents/{{ $section.Params.file_name }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}">
+{{ end }}
