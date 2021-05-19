@@ -4,7 +4,7 @@
 {{ $author_page_path := (printf "/authors/%s" $section.Params.author) }}
 {{ $author_page := .Site.GetPage $author_page_path }}
 
-{{ $pdf := $author_page.Resources.ByType "application/pdf" }}
+{{ $pdf := ($author_page.Resources.GetMatch (prtintf "**%s" $section.Params.file_name }}
 
 <!-- PDF Viewer widget -->
 
