@@ -1,9 +1,9 @@
 {{ $page := .root }}
 {{ $section := .page }}
 
-{{ link := $section.Params.link }}
-{{ height := $section.Params.height }}
-{{ width := $section.Params.width }}
+{{ $link := $section.Params.link }}
+{{ $height := $section.Params.height }}
+{{ $width := $section.Params.width }}
 
 <!-- PDF Viewer widget -->
 
