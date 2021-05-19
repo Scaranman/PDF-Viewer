@@ -7,8 +7,16 @@
 
 <!-- PDF Viewer widget -->
 
-<h1>{{$section.Title}}</h2>
-
-<iframe src="{{ $link }}?usp=drivesdk" width="{{ $width }}" height="{{ $height }}"></iframe>
-
-<p>{{ $section.Content }}</p>
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div id="Google-Drive-Embed">
+      <h1>{{$section.Title}}</h2>
+    </div>
+  </div>
+  <div class="col-12 col-lg-8">
+    <div class="article-style">
+      <iframe src="{{ $link }}?usp=drivesdk" width="{{ $width }}" height="{{ $height }}"></iframe>
+      <p>{{ $section.Content }}</p>
+    </div>
+  </div>
+</div>
