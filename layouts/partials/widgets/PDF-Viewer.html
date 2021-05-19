@@ -4,11 +4,12 @@
 {{ $author_page_path := (printf "/authors/%s" $section.Params.author) }}
 {{ $author_page := .Site.GetPage $author_page_path }}
 
-{{ $pdf := $author_page.Resources.GetMatch (printf "%s.pdf" $section.Params.file_name) }}
+{{ $pdf := $author_page.Resources.GetMatch (printf "**/%s.pdf" $section.Params.file_name) }}
 
 <!-- PDF Viewer widget -->
 
 <h1>{{$section.Title}}</h2>
+<h2>{{ $author_page.Resources }}</h2>
 <h2>author_page_path: {{ (printf "/authors/%s" $section.Params.author) }}</h2>
 <h2>pdfpath: {{ $pdf.RelPermalink }}</h2>
 <h2>filename: {{ $section.Params.file_name }}</h2>
