@@ -1,24 +1,14 @@
 {{ $page := .root }}
 {{ $section := .page }}
 
-{{ $author_page_path := (printf "/authors/%s" $section.Params.author) }}
-{{ $author_page := .Site.GetPage $author_page_path }}
-
-{{ $pdf := $author_page.Resources.GetMatch (printf "**%s" $section.Params.file_name) }}
+{{ link := $section.Params.link }}
+{{ height := $section.Params.height }}
+{{ width := $section.Params.width }}
 
 <!-- PDF Viewer widget -->
 
 <h1>{{$section.Title}}</h2>
-<h2>{{ $author_page.Resources }}</h2>
-<h2>author_page_path: {{ (printf "/authors/%s" $section.Params.author) }}</h2>
-<h2>pdfpath: {{ $pdf.RelPermalink }}</h2>
-<h2>filename: {{ $section.Params.file_name }}</h2>
 
-
-{{ if eq $section.Params.downloadable false }}
-    <embed src="{{ $pdf.RelPermalink }}#toolbar=0" width="100%" height="{{ $section.Params.document_height }}"></embed>
-{{ else }}
-    <embed src="{{ $pdf.RelPermalink }}" width="100%" height="{{ $section.Params.document_height }}"></embed>
-{{ end }}
+<iframe src="{{ $link }}" width="{{ $width }}" height="{{ $height }}"></iframe>
 
 <p>{{ $section.Content }}</p>
