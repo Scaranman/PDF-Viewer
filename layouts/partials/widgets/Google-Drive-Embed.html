@@ -3,7 +3,6 @@
 
 {{ $link := $section.Params.link }}
 {{ $height := $section.Params.height }}
-{{ $width := $section.Params.width }}
 
 <!-- PDF Viewer widget -->
 
@@ -15,7 +14,7 @@
   </div>
   <div class="col-12 col-lg-8">
     <div class="article-style">
-      <div style="position: relative; padding-bottom: 67.5%; height: 0; margin: 10px 0; overflow: hidden;">
+      <div style="position: relative; padding-bottom: 67.5%; height: {{ $height }}; margin: 10px 0; overflow: hidden;">
         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="{{ $link }}?usp=drivesdk"></iframe>
       </div>
       <p>{{ $section.Content }}</p>
